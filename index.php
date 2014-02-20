@@ -17,6 +17,16 @@
       <script src="myjs/bootsnipp.js"></script>
       <script src="myjs/myjs.js"></script>
       
+      <script type="text/javascript" src="myjs/getflickr.js"></script>
+	  <script type="text/javascript">
+		function populate()
+        {
+		    var tag = document.getElementById('tag').value;
+			document.getElementById('photos').innerHTML = getFlickr.html[tag].replace(/_m\.jpg/g,'_s.jpg');
+			return false;
+		}
+      </script>
+      
 
   </head>
   <body>
@@ -57,11 +67,11 @@
                              </ul>
                           </li>
                        </ul>
-                       <form class="navbar-form navbar-left" role="search">
+                       <form class="navbar-form navbar-left" role="search" onsubmit="getFlickr.leech(document.getElementById('tag').value, 'populate'); return false;">
                           <div class="form-group">
-                             <input type="text" class="form-control" placeholder="Suche">
+                             <input type="text" class="form-control" placeholder="Suche" id="tag" name="tag">
                           </div>
-                          <button type="submit" class="btn btn-default">Los</button>
+                          <button type="submit" class="btn btn-default">Los Flickr!</button>
                        </form>
                        <ul class="nav navbar-nav navbar-right">
                           <li <?php if ($_GET['site'] == 'impressum.php') {echo 'class="active"';}?>>
@@ -108,7 +118,7 @@
              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
           </section>
           <section>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+             <div id="photos"></div>
           </section>
           <section>
               <figure>

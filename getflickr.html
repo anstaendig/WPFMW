@@ -1,0 +1,24 @@
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>getFlickr - geklaut</title>
+
+	<script type="text/javascript" src="getflickr.js"></script>
+	<script type="text/javascript">
+		function populate()
+        {
+		    var tag = document.getElementById('tag').value;
+			document.getElementById('photos').innerHTML = getFlickr.html[tag].replace(/_m\.jpg/g,'_s.jpg');
+			return false;
+		}
+	</script>
+    
+</head>
+<body>  
+    <form onsubmit="getFlickr.leech(document.getElementById('tag').value, 'populate'); return false;">
+        <input type="text" id="tag" name="tag" />
+        <input type="submit" value="energize" />
+        <div id="photos"></div>
+    </form>
+</body>
+</html>
