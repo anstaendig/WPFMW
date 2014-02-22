@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Flickrfeed</title>
+
+    <style type="text/css">
+        body{
+        	margin: 0px;
+        	}
+        #container{
+        	width: 960px;
+        	margin: auto;
+        	}
+        #divHeaderWrap{
+        	height: 60px;
+        	background-color: rgb(60, 90, 150);
+        	}
+        header{
+        	width: 960px;
+        	margin: auto;
+         	height: 60px;
+        	background-color: rgb(60, 90, 150);
+        	}
+        header h1{
+        	float: left;
+        	margin: 20px 0px 0px 10px;
+        	font-family: sans-serif;
+        	font-size: 1.3em;
+        	color: white;
+        	}
+        #secFlickrSearch{
+        	float: right;
+        	margin-top: 20px;
+        	color: white;
+        	font-family: sans-serif;
+        	word-wrap: break-word !important;
+        	}
+        #secFlickrResult div{
+        	width: 300px;
+        	height: 320px;
+        	float: left;
+        	margin: 5px;
+        	background-color: rgb(240, 240, 240);
+        	border: 1px solid rgb(230, 230, 230);
+        	}
+        img{
+        	height: 200px;
+        	margin: auto;
+        	display: block;
+        	}
+    </style>
+
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+        	$("#btnSearch").click(function(){
+        		var flickrFeed = "http://api.flickr.com/services/feeds/photos_public.gne?tags=house&tagmode=any&format=json&jsoncallback=?";
+        		
+        		$("#secFlickrResult").html("<img src='loading_anim.gif'>");
+        		
+        		$.getJSON(flickrFeed, function(data){			
+        			/*var jsonAsText = JSON.stringify(data);
+        			$("#secFlickrResult").html(jsonAsText);*/
+        			
+        			var feedTitle = data.title;
+        			
+        			var htmlText = "";
+        			$.each(data.items, function(i, post){
+        				htmlText += "<div><h2>" + post.title + "</h2>";
+        				htmlText += "<img src='" + post.media.m + "'></div>";				
+        			});
+        			
+        			$("#secFlickrResult").html("<h1>" + feedTitle + "</h1>");
+        			$("#secFlickrResult").append(htmlText);
+        		});		
+        	});
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div id="divHeaderWrap">
+        <header>
+            <h1>Flickrfeed</h1>
+
+            <section id="secFlickrSearch">
+                <label>
+                    Suchwort<input id="txtSearchword" type="text">
+                </label>
+                <input id="btnSearch" type="button" value="Search">
+            </section>
+        </header>
+    </div>
+
+    <div id="container">
+        <section id="secFlickrResult"></section>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+section :first-child {
+    display: block;
+    margin: 10px auto;
+}
+.defaulttxt {
+    color: lightgray;
+    font-size: 150%;
+    margin: 100px auto;
+    width: 500px;
+    vertical-align: middle;
+}
+.resulttxt {
+    color: gray;
+    font-size: 150%;
+    margin: 100px auto;
+    width: 180px;
+    vertical-align: middle;
+}
+#photos div {
+    width: 300px;
+    height: 320px;
+    float: left;
+    margin: 5px;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(230, 230, 230);
+}
+img,
+h4 {
+    width: 200px;
+    margin: auto;
+    display: block;
+    font-family: 'Rockwell', sans-serif;
+}
+h3 {
+    font-family: 'Rockwell', sans-serif;
+    /*color: lightgray;*/
+}
