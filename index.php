@@ -1,3 +1,17 @@
+<?php
+require('php/login.php');
+
+if (isset($_POST['senden'])) {
+	$login = new Login();
+	if ($login->checkLogin($_POST["loginname"], $_POST["loginpw"])) {
+		header("Location: http://localhost/php/user.php");
+	} else {
+		echo '<br> Fehlschlag';
+	}
+}
+session_destroy();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -52,10 +66,10 @@
                               <a href="index.php?site=index.php">Startseite</a>
                           </li>
                           <li <?php if ($_GET['site'] == 'gallery.php') {echo 'class="active"';}?>>
-                              <a href="index.php?site=gallery.php">x</a>
+                              <a href="index.php?site=gallery.php">Gallery</a>
                           </li>
                           <li class="dropdown">
-                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">xx<b class="caret"></b></a>
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">DropDown<b class="caret"></b></a>
                              <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
@@ -75,7 +89,7 @@
                        </form>
                        <ul class="nav navbar-nav navbar-right">
                           <li <?php if ($_GET['site'] == 'impressum.php') {echo 'class="active"';}?>>
-                              <a href="index.php?site=impressum.php">xx</a>
+                              <a href="index.php?site=impressum.php">impressum</a>
                            </li>
                           <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Einloggen<b class="caret"></b></a>
@@ -83,19 +97,21 @@
                                 <li>
                                    <div class="row">
                                       <div class="col-md-12">
-                                         <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                          <!-- DER LOGIN -->
+                                         <form class="form" role="form" method="post" action="index.php" accept-charset="UTF-8" id="login-nav">
                                             <div class="form-group">
-                                               <label class="sr-only" for="exampleInputEmail2">Nutzername</label>
-                                               <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Nutzername" required>
+                                               <label class="sr-only" for="logname">Nutzername</label>
+                                               <input type="text" class="form-control" id="logname" name="loginname" placeholder="Nutzername" required>
                                             </div>
                                             <div class="form-group">
-                                               <label class="sr-only" for="exampleInputPassword2">Passwort</label>
-                                               <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Passwort" required>
+                                               <label class="sr-only" for="logpasswort">Passwort</label>
+                                               <input type="password" class="form-control" id="logpasswort" name="loginpw" placeholder="Passwort" required>
                                             </div>
                                             <div class="form-group">
-                                               <button type="submit" class="btn btn-success btn-block">Einloggen</button>
+                                               <button type="submit" name="senden" class="btn btn-success btn-block">Einloggen</button>
                                             </div>
                                          </form>
+                                        <!-- // DER LOGIN -->
                                       </div>
                                    </div>
                                 </li>
