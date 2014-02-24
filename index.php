@@ -52,7 +52,7 @@
                               <a href="">.vita</a>
                           </li>
                           <li <?php if ($_GET['site'] == 'gallery_kuenstler.php') {echo 'class="active"';}?>>
-                              <a href="gallery_kuenstler.php">.gallery</a>
+                              <a href="index.php?site=gallery_kuenstler.php">.gallery</a>
                           </li>
                           
                           <li class="dropdown">

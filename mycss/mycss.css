@@ -41,7 +41,6 @@ footer p {
 
 .gallery {
     text-align: center;
-    display: inline;
 }
 
 input[type=text] {
@@ -69,16 +68,16 @@ input[type=text]:focus {
 }
 
 .left_gallery {
-    display: inline-block;
-    width: 50%;
+    display: inline;
+    width: 200px;
     position: relative;    
     float: left;
     clear: both;
 }
 
 .right_gallery {
-    display: inline-block;
-    width: 50%;
+    display: inline;
+    width: 200px;
     position: relative;
     float: right;
     clear: both;
