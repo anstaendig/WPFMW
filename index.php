@@ -18,13 +18,12 @@
       <script src="myjs/myjs.js"></script>
       
       <script type="text/javascript" src="myjs/getflickr.js"></script>
-	  <script type="text/javascript">
-		function populate()
-        {
-		    var tag = document.getElementById('tag').value;
-			document.getElementById('photos').innerHTML = getFlickr.html[tag].replace(/_m\.jpg/g,'_s.jpg');
-			return false;
-		}
+	    <script type="text/javascript">
+		    function populate() {
+		      var tag = document.getElementById('tag').value;
+          document.getElementById('photos').innerHTML = getFlickr.html[tag].replace(/_m\.jpg/g,'_s.jpg');
+          return false;
+        }
       </script>
       
 
@@ -43,7 +42,7 @@
                        <span class="icon-bar"></span>
                        <span class="icon-bar"></span>
                        </button>
-                       <a class="navbar-brand" href="index.php?site=index.php" class="active">HOME</a>
+                       <a class="navbar-brand" href="index.php" class="active">HOME</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -51,8 +50,8 @@
                           <li>
                               <a href="">.vita</a>
                           </li>
-                          <li <?php if ($_GET['site'] == 'gallery_kuenstler.php') {echo 'class="active"';}?>>
-                              <a href="index.php?site=gallery_kuenstler.php">.gallery</a>
+                          <li>
+                              <a href="gallery_kuenstler.php">.gallery</a>
                           </li>
                           
                           <li class="dropdown">
@@ -78,8 +77,8 @@
                               <button type="submit" class="btn btn-default">Los Flickr!</button>
                             </form>
                           </li>
-                          <li <?php if ($_GET['site'] == 'impressum.php') {echo 'class="active"';}?>>
-                              <a href="index.php?site=impressum.php">xx</a>
+                          <li >
+                              <a href="impressum.php">.impressum</a>
                            </li>
                           <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Einloggen<b class="caret"></b></a>

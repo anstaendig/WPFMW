@@ -92,7 +92,7 @@
                           <li>
                               <a href="">.vita</a>
                           </li>
-                          <li>
+                          <li >
                               <a href="gallery_kuenstler.php">.gallery</a>
                           </li>
                           
@@ -119,8 +119,8 @@
                               <button type="submit" class="btn btn-default">Los Flickr!</button>
                             </form>
                           </li>
-                          <li>
-                              <a href="impressum.php">.impressum</a>
+                          <li >
+                              <a href="impressum.php">xx</a>
                            </li>
                           <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Einloggen<b class="caret"></b></a>
