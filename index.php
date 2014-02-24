@@ -43,19 +43,20 @@
                        <span class="icon-bar"></span>
                        <span class="icon-bar"></span>
                        </button>
-                       <a class="navbar-brand" href="index.php?site=index.php">The Gallery</a>
+                       <a class="navbar-brand" href="index.php?site=index.php" class="active">HOME</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                        <ul class="nav navbar-nav">
-                          <li class="active">
-                              <a href="index.php?site=index.php">Startseite</a>
+                          <li>
+                              <a href="">.vita</a>
                           </li>
-                          <li <?php if ($_GET['site'] == 'gallery.php') {echo 'class="active"';}?>>
-                              <a href="index.php?site=gallery.php">x</a>
+                          <li <?php if ($_GET['site'] == 'gallery_kuenstler.php') {echo 'class="active"';}?>>
+                              <a href="gallery_kuenstler.php">.gallery</a>
                           </li>
+                          
                           <li class="dropdown">
-                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">xx<b class="caret"></b></a>
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">DropDown<b class="caret"></b></a>
                              <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
@@ -67,13 +68,16 @@
                              </ul>
                           </li>
                        </ul>
-                       <form class="navbar-form navbar-left" role="search" onsubmit="getFlickr.leech(document.getElementById('tag').value, 'populate'); return false;">
-                          <div class="form-group">
-                             <input type="text" class="form-control" placeholder="Suche" id="tag" name="tag">
-                          </div>
-                          <button type="submit" class="btn btn-default">Los Flickr!</button>
-                       </form>
+
                        <ul class="nav navbar-nav navbar-right">
+                          <li>
+                            <form class="navbar-form navbar-left" role="search" onsubmit="getFlickr.leech(document.getElementById('tag').value, 'populate'); return false;">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Suche" id="tag" name="tag">
+                              </div>
+                              <button type="submit" class="btn btn-default">Los Flickr!</button>
+                            </form>
+                          </li>
                           <li <?php if ($_GET['site'] == 'impressum.php') {echo 'class="active"';}?>>
                               <a href="index.php?site=impressum.php">xx</a>
                            </li>
