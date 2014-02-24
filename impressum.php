@@ -120,7 +120,7 @@
                             </form>
                           </li>
                           <li >
-                              <a href="impressum.php">xx</a>
+                              <a href="impressum.php">.impressum</a>
                            </li>
                           <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Einloggen<b class="caret"></b></a>
