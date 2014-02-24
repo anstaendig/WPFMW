@@ -10,22 +10,76 @@
       <link href="css/bootstrap.css" rel="stylesheet"/>
       <link href="mycss/bootsnipp.css" rel="stylesheet"/>
       <link href="mycss/mycss.css" rel="stylesheet"/>
+      <link href="mycss/gallery_flickr.css" rel="stylesheet" />
       
       <script src="js/jquery-1.7.2.min.js"></script>
       <script src="myjs/lightbox.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script src="myjs/bootsnipp.js"></script>
       <script src="myjs/myjs.js"></script>
-      
-      <script type="text/javascript" src="myjs/getflickr.js"></script>
-	    <script type="text/javascript">
-		    function populate() {
-		      var tag = document.getElementById('tag').value;
-          document.getElementById('photos').innerHTML = getFlickr.html[tag].replace(/_m\.jpg/g,'_s.jpg');
-          return false;
-        }
-      </script>
-      
+      <script src="myjs/gallery_flickr.js"></script>
+      <script type="text/javascript">
+        $(function(){
+        	$("#btnSearch").click(function(){
+                changeContent();
+                var tag = document.getElementById("tag").value;
+        		var flickrFeed = "http://api.flickr.com/services/feeds/photos_public.gne?tags="+tag+"&tagmode=any&format=json&jsoncallback=?";
+        		$.getJSON(flickrFeed, function(data){			
+        			
+        			var feedTitle = data.title;
+        			
+        			var htmlText = "";
+        			$.each(data.items, function(i, post){
+        				htmlText += "<div><h4>" + post.title + "</h4>";
+        				htmlText += "<img src='" + post.media.m + "'></div>";				
+        			});
+        			
+        			/*$("#photos").html("<h3>" + feedTitle + "</h3>");*/
+                    $("#photos").html("<h3>Bilder mit \"" + tag + "\"</h3>");
+        			$("#photos").append(htmlText);
+        		});		
+        	});
+        });
+    </script>
+    <!-- Adding FancyBox -->
+    <!-- Add mousewheel plugin (this is optional) -->
+    <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <!-- Optionally add helpers - button, thumbnail and/or media -->
+    <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+    <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+    <script>
+        $(document).ready(function() {
+            /* Apply fancybox to multiple items */
+            $(".fancybox").fancybox({
+                openEffect      :   'none',
+                closeEffect     :   'none'  
+            });
+
+            $(".fancybox-thumb").fancybox({
+                prevEffect  : 'none',
+                nextEffect  : 'none',
+                helpers : {
+                    title   : {
+                    type: 'outside'
+                    },
+                    thumbs  : {
+                        width   : 50,
+                        height  : 50
+                    }
+                }
+            });    
+        });
+    </script>
 
   </head>
   <body>
@@ -47,13 +101,15 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                        <ul class="nav navbar-nav">
-                          <li>
+                          <li <?php if ($_GET['site'] == 'index.php' ) {echo 'class="active"';}?>>
                               <a href="">.vita</a>
                           </li>
-                          <li>
-                              <a href="gallery_kuenstler.php">.gallery</a>
+                          <li <?php if ($_GET['site'] == 'gallery_kuenstler.php' ) {echo 'class="active"';}?>>
+                              <a href="index.php?site=gallery_kuenstler.php">.gallery</a>
                           </li>
-                          
+                          <li <?php if ($_GET['site'] == 'gallery_flickr.php' ) {echo 'class="active"';}?>>
+                              <a href="index.php?site=gallery_flickr.php">.galleryflickr</a>
+                          </li>
                           <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">DropDown<b class="caret"></b></a>
                              <ul class="dropdown-menu">
@@ -69,16 +125,8 @@
                        </ul>
 
                        <ul class="nav navbar-nav navbar-right">
-                          <li>
-                            <form class="navbar-form navbar-left" role="search" onsubmit="getFlickr.leech(document.getElementById('tag').value, 'populate'); return false;">
-                              <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Suche" id="tag" name="tag">
-                              </div>
-                              <button type="submit" class="btn btn-default">Los Flickr!</button>
-                            </form>
-                          </li>
-                          <li >
-                              <a href="impressum.php">.impressum</a>
+                          <li <?php if ($_GET['site'] == 'impressum.php' ) {echo 'class="active"';}?>>
+                              <a href="index.php?site=impressum.php">.impressum</a>
                            </li>
                           <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Einloggen<b class="caret"></b></a>
@@ -115,20 +163,38 @@
       
       <div class="clearer"></div>
       
-      <!-- Beginn Hauptinhalt -->
+            <!-- Beginn Hauptinhalt -->
       <div class="maincontent">
-         <section>
-             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          </section>
-          <section>
-             <div id="photos"></div>
-          </section>
-          <section>
-              <figure>
-                <img src="gallery/sakura1.jpg" alt="The Pulpit Rock" height="300px">
-                 <figcaption>She wants to move.</figcaption>
-                </figure>
-          </section>
+          <?php
+            if(isset($_GET['site']))
+            {
+                switch( $_GET['site'] )
+                {
+                    case'index.php':
+                        include('index.php');
+                        break;
+                    case'vita.php':
+                        include('vita.php');
+                        break;
+                    case'gallery_kuenstler.php':
+                        include('gallery_kuenstler.php');
+                        break;
+                    case'gallery_flickr.php':
+                        include('gallery_flickr.php');
+                        break;
+                    case'impressum.php':
+                        include('impressum.php');
+                        break;
+                    default:
+                        include('main.php');
+                        break;
+                }
+            }
+            else
+            {
+                include('main.php');
+            }
+          ?>
       </div>
       <!-- Ende Hauptinhalt -->
       
