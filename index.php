@@ -58,29 +58,7 @@
     <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
     <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
-    <script>
-        $(document).ready(function() {
-            /* Apply fancybox to multiple items */
-            $(".fancybox").fancybox({
-                openEffect      :   'none',
-                closeEffect     :   'none'  
-            });
-
-            $(".fancybox-thumb").fancybox({
-                prevEffect  : 'none',
-                nextEffect  : 'none',
-                helpers : {
-                    title   : {
-                    type: 'outside'
-                    },
-                    thumbs  : {
-                        width   : 50,
-                        height  : 50
-                    }
-                }
-            });    
-        });
-    </script>
+   
 
 </head>
 
@@ -98,12 +76,11 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php" class="active">HOME</a>
+                        <a class="navbar-brand" href="index.php?site=main.php" class="active">HOME</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <?php $_GET['site']='x'; ?>
                             <!-- var_dump( isset($_GET['site']) )-->
                             <li <?php if ($_GET['site']=='index.php' ) {echo 'class="active"';}?>>
                                 <a href="">.vita</a>
@@ -114,7 +91,7 @@
                             <li <?php if ($_GET['site']=='gallery_flickr.php' ) {echo 'class="active"';}?>>
                                 <a href="index.php?site=gallery_flickr.php">.galleryflickr</a>
                             </li>
-                            <li class="dropdown">
+                            <!--li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">DropDown
                                     <b class="caret"></b>
                                 </a>
@@ -137,12 +114,12 @@
                                         <a href="#">One more separated link</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li-->
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
                             <li <?php if ($_GET[ 'site']=='impressum.php' ) {echo 'class="active"';}?>>
-                                <a href="index.php?site=impressum.php">.impressum</a>
+                                <a href="index.php?site=impressum.php" onclick="changeSite(impressum)">.impressum</a>
                             </li>
                             <li>
                                 <a href="#">.logout</a>
@@ -185,8 +162,25 @@
     <div class="clearer"></div>
 
     <!-- Beginn Hauptinhalt -->
+    <!--?php $_GET['site']=''; ?-->
     <div class="maincontent">
-        <?php if(isset($_GET[ 'site'])) { switch( $_GET[ 'site'] ) { case 'index.php': include( 'index.php'); break; case 'vita.php': include( 'vita.php'); break; case 'gallery_kuenstler.php': include( 'gallery_kuenstler.php'); break; case 'gallery_flickr.php': include( 'gallery_flickr.php'); break; case 'impressum.php': include( 'impressum.php'); break; default: include( 'main.php'); break; } } else { include( 'main.php'); } ?>
+        <?php
+            if(isset($_GET['site']))
+            {
+                switch( $_GET['site'] )
+                { 
+                    case 'index.php': include('index.php'); break;
+                    case 'vita.php': include('vita.php'); break; 
+                    case 'gallery_kuenstler.php': include('gallery_kuenstler.php'); break;
+                    case 'gallery_flickr.php': include('gallery_flickr.php'); break;
+                    case 'impressum.php': include('impressum.php'); break;
+                    default: include('main.php');break;
+                }
+            } else {
+                
+                include('main.php');
+                
+            } ?>
     </div>
     <!-- Ende Hauptinhalt -->
 
