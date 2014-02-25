@@ -12,5 +12,3 @@
 </div>
 
 <div id="photos"></div>
-
-<!--getFlickr.leech(document.getElementById('tag').value, 'populate'); return false;-->
