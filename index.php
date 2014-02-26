@@ -19,29 +19,7 @@
     <script src="myjs/bootsnipp.js"></script>
     <script src="myjs/myjs.js"></script>
     <script src="myjs/gallery_flickr.js"></script>
-    <script type="text/javascript">
-        $(function(){
-        	$("#btnSearch").click(function(){
-                changeContent();
-                var tag = document.getElementById("tag").value;
-        		var flickrFeed = "http://api.flickr.com/services/feeds/photos_public.gne?tags="+tag+"&tagmode=any&format=json&jsoncallback=?";
-        		$.getJSON(flickrFeed, function(data){			
-        			
-        			var feedTitle = data.title;
-        			
-        			var htmlText = "";
-        			$.each(data.items, function(i, post){
-        				htmlText += "<div><h4>" + post.title + "</h4>";
-        				htmlText += "<img src='" + post.media.m + "'></div>";				
-        			});
-        			
-        			/*$("#photos").html("<h3>" + feedTitle + "</h3>");*/
-                    $("#photos").html("<h3>Bilder mit \"" + tag + "\"</h3>");
-        			$("#photos").append(htmlText);
-        		});		
-        	});
-        });
-    </script>
+    
     <!-- Adding FancyBox -->
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>

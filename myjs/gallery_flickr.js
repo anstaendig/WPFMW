@@ -1,3 +1,24 @@
+function flickrSearch()
+{
+    changeContent();
+        var tag = document.getElementById("tag").value;
+        var flickrFeed = "http://api.flickr.com/services/feeds/photos_public.gne?tags=" + tag + "&tagmode=any&format=json&jsoncallback=?";
+        $.getJSON(flickrFeed, function (data) {
+
+            var feedTitle = data.title;
+
+            var htmlText = "";
+            $.each(data.items, function (i, post) {
+                htmlText += "<div><h4>" + post.title + "</h4>";
+                htmlText += "<img src='" + post.media.m + "'></div>";
+            });
+
+            /*$("#photos").html("<h3>" + feedTitle + "</h3>");*/
+            $("#photos").html("<h3>Bilder mit \"" + tag + "\"</h3>");
+            $("#photos").append(htmlText);
+        });
+}
+
 function changeContent() {
     $("#photos").html("<img src='images/loader1.gif'>");
 
@@ -20,9 +41,16 @@ function populate() {
     return false;
 }
 
-function activate() { /*funktioniert noch  nicht*/
-    var logout = document.getElementById("logout");
-    if (logout) {
-        logout.className = "active";
+function evalKeyForSubmit(event) {
+    if (!event && window.event) {
+        event = window.event;
+    }
+    if (event.which == 13 || event.which == 14)
+    // ENTER oder RETURN gedrückt, also Suche starten
+    {
+        flickrSearch();
+        return false;
+    } else {
+        return true;
     }
 }

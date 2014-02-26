@@ -1,9 +1,9 @@
 <div>
     <form class="navbar-form navbar-left" role="search" onsubmit="#">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Tag-Suche" id="tag" name="tag">
+            <input type="text" class="form-control" placeholder="Tag-Suche" id="tag" name="tag" onkeypress="return evalKeyForSubmit(event);">
         </div>
-        <button type="button" class="btn btn-default" id="btnSearch">Los</button>
+        <button type="button" class="btn btn-default" id="btnSearch"  onclick="flickrSearch();">Los</button>
     </form>
 </div>
 
