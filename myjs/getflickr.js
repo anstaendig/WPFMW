@@ -20,7 +20,8 @@ getFlickr=
         
 		for( var i=0; i<pix.length; i++)
         {
-            getFlickr.html[getFlickr.tag] += '<img src="'+pix[i].media.m +'" alt="'+pix[i].title+'" />';
+            //getFlickr.html[getFlickr.tag] += '<img src="'+pix[i].media.m +'" alt="'+pix[i].title+'" />';
+            getFlickr.html[getFlickr.tag] += '<a href="' + pix[i].media.m + '" class="fancybox-thumb" rel="flickr"><img class="thumbnail" src="' + pix[i].media.m + '" /></a>';
 		}
     
 		if( getFlickr.func !== undefined )
