@@ -1,9 +1,8 @@
 <?php
-    session_start();
-
+    //session_start();
     echo 'Hallo '.$_SESSION['name'];
 
-    if (!isset($_SESSION['loggedin'])) {
-        header('Location: http://localhost/index.php?site=index.php');
-    }
+    /*if (isset($_SESSION['loggedin'])) {
+        header('Location: http://localhost/index.php?site=gallery_kuenstler.php');
+    }*/
 ?>

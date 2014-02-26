@@ -1,14 +1,15 @@
 <?php
     require('php/login.php');
+
     if (isset($_POST['senden'])) {
         $login = new Login();
         if ($login->checkLogin($_POST["loginname"], $_POST["loginpw"])) {
-            header("Location: http://localhost/php/user.php");
+            header("Location: index.php?site=loged");
         } else {
             echo '<br> Fehlschlag';
-        }
+        }   
     }
-    session_destroy();
+//session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -263,6 +264,7 @@
                     case 'gallery_flickr.php': include('gallery_flickr.php'); break;
                     case 'impressum.php': include('impressum.php'); break;
                     case 'history.php': include('history.php'); break;
+                    case 'loged': include('php/logedin.php'); break;
                     default: include('main.php');break;
                 }
             } else {
