@@ -33,9 +33,12 @@
     <script src="myjs/myjs.js"></script>
     <script src="myjs/gallery_flickr.js"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> master
 
     <!-- Sheree -->
     <script type="text/javascript" src="javascript/JavaScript-2.js"></script>
@@ -104,7 +107,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php?site=main.php" class="active">HOME</a>
+                        <a class="navbar-brand" href="index.php?site=main.php" class="active">.ADAM</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
