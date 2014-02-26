@@ -70,6 +70,7 @@
                 <nav class="navbar navbar-default" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
+                        
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
@@ -82,13 +83,37 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <!-- var_dump( isset($_GET['site']) )-->
-                            <li <?php if ($_GET['site']=='index.php' ) {echo 'class="active"';}?>>
+                            <li <?php 
+                                    if (isset($_GET['site']))
+                                    { 
+                                        if ($_GET['site']=='index.php' )
+                                        {
+                                            echo 'class="active"';
+                                        }
+                                    }
+                                ?>>
                                 <a href="">.vita</a>
                             </li>
-                            <li <?php if ($_GET['site']=='gallery_kuenstler.php' ) {echo 'class="active"';}?>>
+                            <li <?php 
+                                    if (isset($_GET['site']))
+                                    { 
+                                        if ($_GET['site']=='gallery_kuenstler.php' )
+                                        {
+                                            echo 'class="active"';
+                                        }
+                                    }
+                                ?>>
                                 <a href="index.php?site=gallery_kuenstler.php">.gallery</a>
                             </li>
-                            <li <?php if ($_GET['site']=='gallery_flickr.php' ) {echo 'class="active"';}?>>
+                            <li <?php 
+                                    if (isset($_GET['site']))
+                                    { 
+                                        if ($_GET['site']=='gallery_flickr.php' )
+                                        {
+                                            echo 'class="active"';
+                                        }
+                                    }
+                                ?>>
                                 <a href="index.php?site=gallery_flickr.php">.galleryflickr</a>
                             </li>
                             <!--li class="dropdown">
@@ -118,14 +143,23 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li <?php if ($_GET[ 'site']=='impressum.php' ) {echo 'class="active"';}?>>
-                                <a href="index.php?site=impressum.php" onclick="changeSite(impressum)">.impressum</a>
+                            <li <?php 
+                                    if (isset($_GET['site']))
+                                    { 
+                                        if ($_GET['site']=='impressum.php' )
+                                        {
+                                            echo 'class="active"';
+                                        }
+                                    }
+                                ?>>
+                                <a href="index.php?site=impressum.php">.impressum</a>
                             </li>
                             <li>
-                                <a href="#">.logout</a>
+                                <a href="#">LOGOUT</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">.login
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    LOGIN
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
@@ -163,6 +197,7 @@
 
     <!-- Beginn Hauptinhalt -->
     <!--?php $_GET['site']=''; ?-->
+    
     <div class="maincontent">
         <?php
             if(isset($_GET['site']))
@@ -177,7 +212,7 @@
                     default: include('main.php');break;
                 }
             } else {
-                
+               
                 include('main.php');
                 
             } ?>

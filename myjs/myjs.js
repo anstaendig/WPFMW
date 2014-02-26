@@ -19,9 +19,3 @@ $(document).ready(function () {
         }
     });
 });
-
-function changeSite(site)
-{
-    document.write("<?php $_GET['site']='"+ site +".php'; ?>");
-    document.write("hi");
-}
