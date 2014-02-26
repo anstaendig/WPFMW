@@ -1,3 +1,16 @@
+<?php
+    require('php/login.php');
+    if (isset($_POST['senden'])) {
+        $login = new Login();
+        if ($login->checkLogin($_POST["loginname"], $_POST["loginpw"])) {
+            header("Location: http://localhost/php/user.php");
+        } else {
+            echo '<br> Fehlschlag';
+        }
+    }
+    session_destroy();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +32,43 @@
     <script src="myjs/bootsnipp.js"></script>
     <script src="myjs/myjs.js"></script>
     <script src="myjs/gallery_flickr.js"></script>
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+
+    <!-- Sheree -->
+    <script type="text/javascript" src="javascript/JavaScript-2.js"></script>
+    <script type="text/javascript" src="javascript/toggle.js"></script>
+    <script src ="javascript/funktion.js"> </script>
+
+    <script type="text/javascript">
+        $(function(){
+        	$("#btnSearch").click(function(){
+                changeContent();
+                var tag = document.getElementById("tag").value;
+        		var flickrFeed = "http://api.flickr.com/services/feeds/photos_public.gne?tags="+tag+"&tagmode=any&format=json&jsoncallback=?";
+        		$.getJSON(flickrFeed, function(data){			
+        			
+        			var feedTitle = data.title;
+        			
+        			var htmlText = "";
+        			$.each(data.items, function(i, post){
+        				htmlText += "<div><h4>" + post.title + "</h4>";
+        				htmlText += "<img src='" + post.media.m + "'></div>";				
+        			});
+        			
+        			/*$("#photos").html("<h3>" + feedTitle + "</h3>");*/
+                    $("#photos").html("<h3>Bilder mit \"" + tag + "\"</h3>");
+        			$("#photos").append(htmlText);
+        		});		
+        	});
+        });
+    </script>
+=======
+    
+>>>>>>> origin/ngoc
+>>>>>>> origin/master
     <!-- Adding FancyBox -->
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -71,6 +120,17 @@
                                     }
                                 ?>>
                                 <a href="">.vita</a>
+                            </li>
+                            <li <?php 
+                                    if (isset($_GET['site']))
+                                    { 
+                                        if ($_GET['site']=='history.php' )
+                                        {
+                                            echo 'class="active"';
+                                        }
+                                    }
+                                ?>>
+                                <a href="index.php?site=history.php">.history</a>
                             </li>
                             <li class="unvis" id="gallery_kuenstler"<?php 
                                     if (isset($_GET['site']))
@@ -136,8 +196,11 @@
                                 <a href="#" onclick="changeView('logout');">LOGOUT</a>
                             </li>
                             <li>
-                                <a href="#" onclick="changeView('user2');">TestLogin</a>
+                                <a href="#" onclick="changeView('user2');">TestLoginUser2</a>
                             </li>
+                            <li>
+                                <a href="#" onclick="changeView('user1');">TestLoginUser1</a>
+                            </li>                            
                             <li class="dropdown" id="login">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     LOGIN
@@ -147,6 +210,7 @@
                                     <li>
                                         <div class="row">
                                             <div class="col-md-12">
+                                                <!-- OLD
                                                 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
                                                     <div class="form-group">
                                                         <label class="sr-only" for="exampleInputEmail2">Nutzername</label>
@@ -158,6 +222,21 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <button type="submit" class="btn btn-success btn-block" >Einloggen</button>
+                                                    </div>
+                                                </form>
+                                                -->
+                                                <!-- NIGEL -->
+                                                <form class="form" role="form" method="post" action="index.php" accept-charset="UTF-8" id="login-nav">
+                                                    <div class="form-group">
+                                                        <label class="sr-only" for="logname">Nutzername</label>
+                                                        <input type="email" class="form-control" id="logname" name="loginname" placeholder="Nutzername" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="sr-only" for="logpasswort">Passwort</label>
+                                                        <input type="password" class="form-control" id="logpasswort" name="loginpw" placeholder="Passwort" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="submit" name="senden" class="btn btn-success btn-block">Einloggen</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -190,6 +269,7 @@
                     case 'gallery_kuenstler.php': include('gallery_kuenstler.php'); break;
                     case 'gallery_flickr.php': include('gallery_flickr.php'); break;
                     case 'impressum.php': include('impressum.php'); break;
+                    case 'history.php': include('history.php'); break;
                     default: include('main.php');break;
                 }
             } else {
