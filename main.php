@@ -1,6 +1,6 @@
 <div class="container">
     <div class="page-header text-center">
-        <h1>.diegallerie</h1>
+        <h1>.adam</h1>
     </div>
     <ul class="timeline">
         <li>
@@ -11,11 +11,11 @@
             </div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <img class="img-responsive" src="gallery/sakura2.JPG" />
+                    <img class="img-responsive" src="gallery/political04.JPG" />
 
                 </div>
                 <div class="timeline-body pull-right">
-                    <p>Der Surfermann</p>
+                    <p>JUST DO IT</p>
 
                 </div>
             </div>
@@ -29,11 +29,11 @@
             </div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <img class="img-responsive" src="gallery/sakura1.jpg" />
+                    <img class="img-responsive" src="gallery/hero01.jpg" />
 
                 </div>
                 <div class="timeline-body">
-                    <p>Noch ein Surfermann</p>
+                    <p>What It Takes To Be A Hero</p>
                 </div>
             </div>
         </li>
@@ -45,11 +45,11 @@
             </div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <img class="img-responsive" src="gallery/sakura3.jpg" />
+                    <img class="img-responsive" src="gallery/manipulation01.jpg" />
 
                 </div>
                 <div class="timeline-body pull-right">
-                    <p>Wunderschöne Kirschblüten</p>
+                    <p>Manipulation</p>
                 </div>
 
             </div>

@@ -1,4 +1,4 @@
-<section class="gallery">
+<div class="container">
     <div class="left_gallery">
         <h3>.nails</h3>
         <a href="gallery/nails01.jpg" class="fancybox-thumb" rel="nails">
@@ -56,6 +56,9 @@
         <a href="gallery/political04.jpg" class="fancybox-thumb" rel="political">
             <img class="thumbnail" src="gallery/political04.jpg" />
         </a>
+        <a href="gallery/political05.jpg" class="fancybox-thumb" rel="political">
+            <img class="thumbnail" src="gallery/political05.jpg" />
+        </a>
     </div>
     <div class="left_gallery">
         <h3>.other</h3>
@@ -75,5 +78,4 @@
             <img class="thumbnail" src="gallery/05.jpg" />
         </a>
     </div>
-</section>
 </div>
