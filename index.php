@@ -32,7 +32,6 @@
     <script src="myjs/bootsnipp.js"></script>
     <script src="myjs/myjs.js"></script>
     <script src="myjs/gallery_flickr.js"></script>
-<<<<<<< HEAD
 
     <!-- Sheree -->
     <script type="text/javascript" src="javascript/JavaScript-2.js"></script>
@@ -62,9 +61,6 @@
         	});
         });
     </script>
-=======
-    
->>>>>>> origin/ngoc
     <!-- Adding FancyBox -->
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
