@@ -29,6 +29,8 @@ footer p {
 .clearer {
     clear: both;
 }
+/*fuer kuenstler-gallery*/
+
 .thumbnail {
     width: 75px;
     height: 75px;
@@ -86,8 +88,20 @@ input[type=text]:focus {
     float: left;
 }
 /*fuer main */
+
 h1 {
     text-shadow: -0.07em -0.07em #aaa;
     font-family: 'Rockwell', sans-serif;
     color: #777;
+}
+/*fuer login-logout Ansicht*/
+
+li.vis {
+    display: inherit;
+}
+li.unvis {
+    display: none;
+}
+#unvis {
+    display: none;
 }

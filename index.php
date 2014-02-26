@@ -94,7 +94,7 @@
                                 ?>>
                                 <a href="">.vita</a>
                             </li>
-                            <li <?php 
+                            <li class="unvis" id="gallery_kuenstler"<?php 
                                     if (isset($_GET['site']))
                                     { 
                                         if ($_GET['site']=='gallery_kuenstler.php' )
@@ -105,7 +105,7 @@
                                 ?>>
                                 <a href="index.php?site=gallery_kuenstler.php">.gallery</a>
                             </li>
-                            <li <?php 
+                            <li class="unvis" id="gallery_flickr" <?php 
                                     if (isset($_GET['site']))
                                     { 
                                         if ($_GET['site']=='gallery_flickr.php' )
@@ -154,10 +154,13 @@
                                 ?>>
                                 <a href="index.php?site=impressum.php">.impressum</a>
                             </li>
-                            <li>
-                                <a href="#">LOGOUT</a>
+                            <li class="unvis" id="logout">
+                                <a href="#" onclick="changeView('logout');">LOGOUT</a>
                             </li>
-                            <li class="dropdown">
+                            <li>
+                                <a href="#" onclick="changeView('user2');">TestLogin</a>
+                            </li>
+                            <li class="dropdown" id="login">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     LOGIN
                                     <b class="caret"></b>
@@ -176,7 +179,7 @@
                                                         <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Passwort" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <button type="submit" class="btn btn-success btn-block">Einloggen</button>
+                                                        <button type="submit" class="btn btn-success btn-block" >Einloggen</button>
                                                     </div>
                                                 </form>
                                             </div>
