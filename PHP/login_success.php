@@ -1,8 +1,4 @@
 <?php 
-    session_start();
-?>
-
-<?php 
     if (isset($_SESSION["rights"])) {
         if ($_SESSION["rights"] == 1) {
             echo '<script type="text/javascript"> changeView("user1"); </script>';
@@ -13,9 +9,11 @@
         }
     }
 ?>
-<?php 
-	session_destroy();
-?>
+
+<meta http-equiv="refresh" content="5; URL=index.php?site=main">
+
 <div class="container">
-	You have successfully logged out.
+    <div class="defaulttxt" id="txt">
+	   You have successfully logged in. You will be redirected in five seconds...
+    </div>
 </div>

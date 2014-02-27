@@ -1,8 +1,4 @@
 <?php 
-    session_start();
-?>
-
-<?php 
     if (isset($_SESSION["rights"])) {
         if ($_SESSION["rights"] == 1) {
             echo '<script type="text/javascript"> changeView("user1"); </script>';

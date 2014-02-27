@@ -29,6 +29,6 @@
     	$_SESSION["rights"] = $row["rights"];
 		header("location:../index.php?site=login_success"); 
     } else { 
-    	echo "Wrong username and/or password."; 
+    	header("location:../index.php?site=login_error"); 
     };
 ?>
