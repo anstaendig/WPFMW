@@ -7,5 +7,5 @@
 ?>
 
 <div class="container">
-	Impressum
+	You have successfully logged out.
 </div>
