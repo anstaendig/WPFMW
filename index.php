@@ -1,8 +1,6 @@
-<!--
-<?php
+<?php 
     session_start();
 ?>
--->
 
 <!DOCTYPE html>
 <html>
@@ -169,7 +167,7 @@
                                 <a href="index.php?site=impressum">.impressum</a>
                             </li>
                             <li class="unvis" id="logout">
-                                <a href="index.php?site=logout" onclick="changeView('logout');">LOGOUT</a>
+                                <a href="index.php?site=logout">LOGOUT</a>
                             </li>                           
                             <li class="dropdown" id="login">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
