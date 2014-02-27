@@ -1,15 +1,5 @@
-<?php
-    require('php/login.php');
-
-    if (isset($_POST['senden'])) {
-        $login = new Login();
-        if ($login->checkLogin($_POST["loginname"], $_POST["loginpw"])) {
-            header("Location: index.php?site=loged");
-        } else {
-            echo '<br> Fehlschlag';
-        }   
-    }
-//session_destroy();
+<?php 
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +29,7 @@
     <script type="text/javascript" src="javascript/toggle.js"></script>
     <script src ="javascript/funktion.js"> </script>
 
+<!-- flickrsearch why here?    
     <script type="text/javascript">
         $(function(){
         	$("#btnSearch").click(function(){
@@ -61,7 +52,8 @@
         		});		
         	});
         });
-    </script>
+    </script> 
+-->
     <!-- Adding FancyBox -->
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -97,23 +89,12 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php?site=main.php" class="active">.ADAM</a>
+                        <a class="navbar-brand" href="index.php?site=main" class="active">.ADAM</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <!-- var_dump( isset($_GET['site']) )-->
-                            <li <?php 
-                                    if (isset($_GET['site']))
-                                    { 
-                                        if ($_GET['site']=='index.php' )
-                                        {
-                                            echo 'class="active"';
-                                        }
-                                    }
-                                ?>>
-                                <a href="">.vita</a>
-                            </li>
                             <li <?php 
                                     if (isset($_GET['site']))
                                     { 
@@ -123,7 +104,7 @@
                                         }
                                     }
                                 ?>>
-                                <a href="index.php?site=history.php">.history</a>
+                                <a href="index.php?site=history">.history</a>
                             </li>
                             <li class="unvis" id="gallery_kuenstler"<?php 
                                     if (isset($_GET['site']))
@@ -134,7 +115,7 @@
                                         }
                                     }
                                 ?>>
-                                <a href="index.php?site=gallery_kuenstler.php">.gallery</a>
+                                <a href="index.php?site=gallery_kuenstler">.gallery</a>
                             </li>
                             <li class="unvis" id="gallery_flickr" <?php 
                                     if (isset($_GET['site']))
@@ -145,7 +126,7 @@
                                         }
                                     }
                                 ?>>
-                                <a href="index.php?site=gallery_flickr.php">.galleryflickr</a>
+                                <a href="index.php?site=gallery_flickr">.galleryflickr</a>
                             </li>
                             <!--li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">DropDown
@@ -183,17 +164,11 @@
                                         }
                                     }
                                 ?>>
-                                <a href="index.php?site=impressum.php">.impressum</a>
+                                <a href="index.php?site=impressum">.impressum</a>
                             </li>
                             <li class="unvis" id="logout">
-                                <a href="#" onclick="changeView('logout');">LOGOUT</a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="changeView('user2');">TestLoginUser2</a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="changeView('user1');">TestLoginUser1</a>
-                            </li>                            
+                                <a href="index.php?site=logout">LOGOUT</a>
+                            </li>                           
                             <li class="dropdown" id="login">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     LOGIN
@@ -218,7 +193,7 @@
                                                     </div>
                                                 </form>
                                                 -->
-                                                <!-- NIGEL -->
+                                                <!-- NIGEL
                                                 <form class="form" role="form" method="post" action="index.php" accept-charset="UTF-8" id="login-nav">
                                                     <div class="form-group">
                                                         <label class="sr-only" for="logname">Nutzername</label>
@@ -231,7 +206,22 @@
                                                     <div class="form-group">
                                                         <button type="submit" name="senden" class="btn btn-success btn-block">Einloggen</button>
                                                     </div>
-                                                </form>
+                                                </form> -->
+                                                <!-- Iggi -->
+                                                <form class="form" role="form" method="post" action="PHP2/checklogin.php" accept-charset="UTF-8" id="login-nav">
+                                                    <div class="form-group">
+                                                        <label class="sr-only" for="logname">E-Mail</label>
+                                                        <input type="email" class="form-control" id="user" name="user" placeholder="E-Mail" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="sr-only" for="logpasswort">Password</label>
+                                                        <input type="password" class="form-control" id="pw" name="pw" placeholder="Password" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <!-- <button type="submit" name="Submit" value="Login" class="btn btn-success btn-block">Login</button> -->
+                                                        <input type="submit" name="Submit" value="Login">
+                                                    </div>
+                                                </form>                                                
                                             </div>
                                         </div>
                                     </li>
@@ -253,24 +243,23 @@
     
     <div class="maincontent">
         <?php
-            if(isset($_GET['site']))
-            {
-                switch( $_GET['site'] )
-                { 
-                    case 'index.php': include('index.php'); break;
-                    case 'vita.php': include('vita.php'); break; 
-                    case 'gallery_kuenstler.php': include('gallery_kuenstler.php'); break;
-                    case 'gallery_flickr.php': include('gallery_flickr.php'); break;
-                    case 'impressum.php': include('impressum.php'); break;
-                    case 'history.php': include('history.php'); break;
-                    case 'loged': include('php/logedin.php'); break;
+            if(isset($_GET['site'])) {
+                switch( $_GET['site'] ) { 
+                    // case 'index': include('index.php'); break;
+                    //case 'vita.php': include('vita.php'); break; 
+                    case 'gallery_kuenstler': include('gallery_kuenstler.php'); break;
+                    case 'gallery_flickr': include('gallery_flickr.php'); break;
+                    case 'impressum': include('impressum.php'); break;
+                    case 'history': include('history.php'); break;
+                    // case 'loged': include('php/logedin.php'); break;
+                    case 'logout': include('PHP2/logout.php'); break;
+                    case 'login_success'; include('PHP2/login_success.php'); break;
                     default: include('main.php');break;
                 }
             } else {
-               
-                include('main.php');
-                
-            } ?>
+                include('main.php');    
+            } 
+        ?>
     </div>
     <!-- Ende Hauptinhalt -->
 

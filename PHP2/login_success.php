@@ -15,5 +15,5 @@
 ?>
 
 <div class="container">
-	Impressum
+	You have successfully logged in.
 </div>

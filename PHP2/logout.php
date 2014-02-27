@@ -13,7 +13,9 @@
         }
     }
 ?>
-
+<?php 
+	session_destroy();
+?>
 <div class="container">
-	Impressum
+	You have successfully logged out.
 </div>
