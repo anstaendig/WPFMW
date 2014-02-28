@@ -19,7 +19,7 @@ $(document).ready(function () {
         }
     });
 });
-
+/*
 function changeView(view) {
     
     if ( view === "user1" ) {
@@ -39,3 +39,4 @@ function changeView(view) {
         alert("Something went terribly wrong!");
     }
 };
+*/

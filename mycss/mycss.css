@@ -101,7 +101,7 @@ h1 {
     color: #777;
 }
 
-/*fuer login-logout Ansicht*/
+/*fuer login-logout Ansicht
 li.vis {
     display: inherit;
 }
@@ -110,7 +110,7 @@ li.unvis {
 }
 #unvis {
     display: none;
-}
+}*/
 
 /* Sheree */
 .bilder img {
@@ -135,4 +135,23 @@ li.unvis {
 #photos img {
     display: inline-block;
     float: left;
+}
+
+/* impressum */
+
+h3 {
+    text-shadow: -0.07em -0.07em #ccc;
+    font-family: 'Rockwell', sans-serif;
+    color: #aaa;
+}
+
+.imp_left {
+    width: 30%;
+    display: inline-block;
+}
+
+.imp_right {
+    width: 60%;
+    display: inline-block;
+    text-align: justify;
 }
