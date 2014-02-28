@@ -37,8 +37,8 @@ footer p {
 
 /*fuer kuenstler-gallery*/
 .thumbnail {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
 }
 
 .left_gallery {
@@ -112,7 +112,7 @@ li.unvis {
     display: none;
 }
 
-/* Sheree */
+/* Sheree 
 .bilder img {
     height:200px;
     width: 30%;
@@ -123,6 +123,63 @@ li.unvis {
 
 .buttons {
     margin-top: 250px;
+}
+*/
+
+
+/* Sheree neu test */
+.bilder img{
+    height:250px;
+    width: 40%;
+    display: inline-block;
+    float:left;
+    padding: 27px;
+
+}
+
+.buttons{
+    margin-top: 80px;
+    display: inline-block;
+    margin: 27px;
+}
+
+#teil2{
+    position: relative;
+    left: 280px;
+}
+
+#teil1{
+    position: relative;
+    left: 71px;
+}
+
+.content {
+    display: inline-block;
+    margin: 27px;
+}
+
+#titleA, #titleB {
+        display: inline-block;
+        margin: 10px;
+        position: relative;
+        float: left;
+}
+
+.einleitung{
+    top:45px;
+    left: 146px;
+    float:left;
+    position: absolute;
+}
+
+#teil11, #teil22, #A, #B, #erstes, #zweites{
+    display:none;
+}
+
+#teil11,#teil22{
+    position: relative;
+    top: 100px;
+    left: 28px;
 }
 
 /* flickrgallery */
@@ -135,4 +192,23 @@ li.unvis {
 #photos img {
     display: inline-block;
     float: left;
+}
+
+/* impressum */
+
+h3 {
+    text-shadow: -0.07em -0.07em #ccc;
+    font-family: 'Rockwell', sans-serif;
+    color: #aaa;
+}
+
+.imp_left {
+    width: 30%;
+    display: inline-block;
+}
+
+.imp_right {
+    width: 60%;
+    display: inline-block;
+    text-align: justify;
 }
