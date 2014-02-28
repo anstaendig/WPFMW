@@ -16,6 +16,7 @@ section :first-child {
     width: 180px;
     vertical-align: middle;
 }
+/*
 #photos div {
     width: 300px;
     height: 320px;
@@ -23,7 +24,9 @@ section :first-child {
     margin: 5px;
     background-color: rgb(240, 240, 240);
     border: 1px solid rgb(230, 230, 230);
+    display: inline-block;
 }
+
 img,
 h4 {
     width: 200px;

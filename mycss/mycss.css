@@ -124,3 +124,15 @@ li.unvis {
 .buttons {
     margin-top: 250px;
 }
+
+/* flickrgallery */
+#photos {
+    display: inline-block;
+    float: left;
+    margin-bottom: 50px;
+}
+
+#photos img {
+    display: inline-block;
+    float: left;
+}

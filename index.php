@@ -1,17 +1,6 @@
-<?php
-    require('php/login.php');
-
-    if (isset($_POST['senden'])) {
-        $login = new Login();
-        if ($login->checkLogin($_POST["loginname"], $_POST["loginpw"])) {
-            header("Location: index.php?site=loged");
-        } else {
-            echo '<br> Fehlschlag';
-        }   
-    }
-//session_destroy();
-?>
-
+<?php 
+    session_start(); 
+?> 
 <!DOCTYPE html>
 <html>
 
@@ -39,6 +28,7 @@
     <script type="text/javascript" src="javascript/toggle.js"></script>
     <script src ="javascript/funktion.js"> </script>
 
+<<<<<<< HEAD
     <script type="text/javascript">
         $(function(){
         	$("#btnSearch").click(function(){
@@ -63,6 +53,8 @@
         });
     </script>
 
+=======
+>>>>>>> master
     <!-- Adding FancyBox -->
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -98,103 +90,61 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php?site=main.php" class="active">.ADAM</a>
+                        <a class="navbar-brand" href="index.php?site=main" class="active">.ADAM</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <!-- var_dump( isset($_GET['site']) )-->
                             <li <?php 
                                     if (isset($_GET['site']))
                                     { 
-                                        if ($_GET['site']=='index.php' )
+                                        if ($_GET['site']=='history' )
                                         {
                                             echo 'class="active"';
                                         }
                                     }
                                 ?>>
-                                <a href="">.vita</a>
-                            </li>
-                            <li <?php 
-                                    if (isset($_GET['site']))
-                                    { 
-                                        if ($_GET['site']=='history.php' )
-                                        {
-                                            echo 'class="active"';
-                                        }
-                                    }
-                                ?>>
-                                <a href="index.php?site=history.php">.history</a>
+                                <a href="index.php?site=history">.history</a>
                             </li>
                             <li class="unvis" id="gallery_kuenstler"<?php 
                                     if (isset($_GET['site']))
                                     { 
-                                        if ($_GET['site']=='gallery_kuenstler.php' )
+                                        if ($_GET['site']=='gallery_kuenstler' )
                                         {
                                             echo 'class="active"';
                                         }
                                     }
                                 ?>>
-                                <a href="index.php?site=gallery_kuenstler.php">.gallery</a>
+                                <a href="index.php?site=gallery_kuenstler">.gallery</a>
                             </li>
                             <li class="unvis" id="gallery_flickr" <?php 
                                     if (isset($_GET['site']))
                                     { 
-                                        if ($_GET['site']=='gallery_flickr.php' )
+                                        if ($_GET['site']=='gallery_flickr' )
                                         {
                                             echo 'class="active"';
                                         }
                                     }
                                 ?>>
-                                <a href="index.php?site=gallery_flickr.php">.galleryflickr</a>
+                                <a href="index.php?site=gallery_flickr">.galleryflickr</a>
                             </li>
-                            <!--li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">DropDown
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#">Action</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Another action</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Something else here</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">Separated link</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">One more separated link</a>
-                                    </li>
-                                </ul>
-                            </li-->
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
                             <li <?php 
                                     if (isset($_GET['site']))
                                     { 
-                                        if ($_GET['site']=='impressum.php' )
+                                        if ($_GET['site']=='impressum' )
                                         {
                                             echo 'class="active"';
                                         }
                                     }
                                 ?>>
-                                <a href="index.php?site=impressum.php">.impressum</a>
+                                <a href="index.php?site=impressum">.impressum</a>
                             </li>
                             <li class="unvis" id="logout">
-                                <a href="#" onclick="changeView('logout');">LOGOUT</a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="changeView('user2');">TestLoginUser2</a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="changeView('user1');">TestLoginUser1</a>
-                            </li>                            
+                                <a href="index.php?site=logout">LOGOUT</a>
+                            </li>                           
                             <li class="dropdown" id="login">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     LOGIN
@@ -204,35 +154,19 @@
                                     <li>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <!-- OLD
-                                                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                                <form class="form" role="form" method="post" action="PHP/checklogin.php" accept-charset="UTF-8" id="login-nav">
                                                     <div class="form-group">
-                                                        <label class="sr-only" for="exampleInputEmail2">Nutzername</label>
-                                                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Nutzername" required>
+                                                        <label class="sr-only" for="logname">E-Mail</label>
+                                                        <input type="email" class="form-control" id="logname" name="user" placeholder="E-Mail" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="sr-only" for="exampleInputPassword2">Passwort</label>
-                                                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Passwort" required>
+                                                        <label class="sr-only" for="logpasswort">Password</label>
+                                                        <input type="password" class="form-control" id="logpasswort" name="pw" placeholder="Password" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <button type="submit" class="btn btn-success btn-block" >Einloggen</button>
+                                                        <button type="submit" name="Submit" value="Login" class="btn btn-success btn-block">Login</button>
                                                     </div>
-                                                </form>
-                                                -->
-                                                <!-- NIGEL -->
-                                                <form class="form" role="form" method="post" action="index.php" accept-charset="UTF-8" id="login-nav">
-                                                    <div class="form-group">
-                                                        <label class="sr-only" for="logname">Nutzername</label>
-                                                        <input type="email" class="form-control" id="logname" name="loginname" placeholder="Nutzername" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="sr-only" for="logpasswort">Passwort</label>
-                                                        <input type="password" class="form-control" id="logpasswort" name="loginpw" placeholder="Passwort" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <button type="submit" name="senden" class="btn btn-success btn-block">Einloggen</button>
-                                                    </div>
-                                                </form>
+                                                </form>                                                
                                             </div>
                                         </div>
                                     </li>
@@ -249,29 +183,24 @@
 
     <div class="clearer"></div>
 
-    <!-- Beginn Hauptinhalt -->
-    <!--?php $_GET['site']=''; ?-->
-    
+    <!-- Beginn Hauptinhalt -->    
     <div class="maincontent">
         <?php
-            if(isset($_GET['site']))
-            {
-                switch( $_GET['site'] )
-                { 
-                    case 'index.php': include('index.php'); break;
-                    case 'vita.php': include('vita.php'); break; 
-                    case 'gallery_kuenstler.php': include('gallery_kuenstler.php'); break;
-                    case 'gallery_flickr.php': include('gallery_flickr.php'); break;
-                    case 'impressum.php': include('impressum.php'); break;
-                    case 'history.php': include('history.php'); break;
-                    case 'loged': include('php/logedin.php'); break;
+            if(isset($_GET['site'])) {
+                switch( $_GET['site'] ) { 
+                    case 'gallery_kuenstler': include('gallery_kuenstler.php'); break;
+                    case 'gallery_flickr': include('gallery_flickr.php'); break;
+                    case 'impressum': include('impressum.php'); break;
+                    case 'history': include('history.php'); break;
+                    case 'logout': include('PHP/logout.php'); break;
+                    case 'login_success'; include('PHP/login_success.php'); break;
+                    case 'login_error'; include('PHP/login_error.php'); break;
                     default: include('main.php');break;
                 }
             } else {
-               
-                include('main.php');
-                
-            } ?>
+                include('main.php');    
+            } 
+        ?>
     </div>
     <!-- Ende Hauptinhalt -->
 

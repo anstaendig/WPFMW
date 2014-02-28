@@ -9,8 +9,8 @@ function flickrSearch()
 
             var htmlText = "";
             $.each(data.items, function (i, post) {
-                htmlText += "<div><h4>" + post.title + "</h4>";
-                htmlText += "<img src='" + post.media.m + "'></div>";
+                //htmlText += "<div class='flickrgallery'>";
+                htmlText += "<a href='" + post.media.m + "' class='fancybox-thumb' rel='flickr'><img class='thumbnail' src='" + post.media.m + "' /></a>";
             });
 
             /*$("#photos").html("<h3>" + feedTitle + "</h3>");*/
