@@ -1,5 +1,7 @@
+
 <?php 
     session_start(); 
+    error_reporting(E_ALL);
 ?> 
 <!DOCTYPE html>
 <html>
@@ -48,7 +50,7 @@
 
 </head>
 
-<body>
+<body oncontextmenu="return false;">
     <!-- Anfang Bootsnipp NavBar -->
     <div class="container">
         <div class="row">

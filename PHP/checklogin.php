@@ -1,15 +1,14 @@
 <?php 
 	session_start(); 
-?> 
-
-<?php 
-	$host="localhost"; // Host name 
-	$username="root"; // Mysql username 
-	$password=""; // Mysql password 
-	$db_name="mw"; // Database name 
+	error_reporting(E_ALL);
+	ob_start();
+	$host="db517273443.db.1and1.com:3306"; // Host name 
+	$username="dbo517273443"; // Mysql username 
+	$password="cMM2749b"; // Mysql password 
+	$db_name="db517273443"; // Database name 
 	$tbl_name="users"; // Table name 
 
-	mysql_connect("localhost", "$username" , "$password") or die ("Cannot connect to database."); 
+	mysql_connect("$host", "$username" , "$password") or die ("Cannot connect to database."); 
 	mysql_select_db("$db_name") or die ("Could not find database"); 
 
 	$user = $_POST["user"]; 
@@ -27,8 +26,10 @@
 	if($row["password"] == $pw) { 
     	// $_SESSION["user"] = $user;
     	$_SESSION["rights"] = $row["rights"];
-		header("location:../index.php?site=login_success"); 
+		header("Location: http://ignatz-radstroem.com/index?site=login_success");
+		exit(); 
     } else { 
-    	header("location:../index.php?site=login_error"); 
+    	header("Location: http://ignatz-radstroem.com/index?site=login_serror");
+    	exit(); 
     };
 ?>
