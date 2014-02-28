@@ -22,7 +22,7 @@
             </div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <img class="img-responsive" src="gallery/political04.JPG" />
+                    <img class="img-responsive" src="gallery/political05.JPG" />
 
                 </div>
                 <div class="timeline-body pull-right">

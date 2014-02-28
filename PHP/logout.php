@@ -9,7 +9,8 @@
 
 <div class="container">
     <div class="defaulttxt" id="txt">
-        You have successfully logged out. You will be redirected in five seconds...<br>
+        You have successfully logged out. <br />
+        You will be redirected in five seconds...<br />
         <img src='images/loader1.gif' id='loader'>
     </div>
 </div>
