@@ -112,6 +112,7 @@ li.unvis {
     display: none;
 }
 
+
 /* Sheree 
 .bilder img {
     height:200px;
@@ -211,4 +212,8 @@ h3 {
     width: 60%;
     display: inline-block;
     text-align: justify;
+}
+
+#loader {
+    width: 200px;
 }

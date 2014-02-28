@@ -20,7 +20,7 @@ function flickrSearch()
 }
 
 function changeContent() {
-    $("#photos").html("<img src='images/loader1.gif'>");
+    $("#photos").html("<img src='images/loader1.gif' id='loader'>");
 
     var pix = document.getElementById("photos");
     if (pix.children.length == 1) {

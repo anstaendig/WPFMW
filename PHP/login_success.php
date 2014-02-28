@@ -14,6 +14,7 @@
 
 <div class="container">
     <div class="defaulttxt" id="txt">
-	   You have successfully logged in. You will be redirected in five seconds...
+	   You have successfully logged in. You will be redirected in five seconds...<br>
+       <img src='images/loader1.gif' id='loader'>
     </div>
 </div>
