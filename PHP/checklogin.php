@@ -29,7 +29,7 @@
 		header("Location: http://ignatz-radstroem.com/index?site=login_success");
 		exit(); 
     } else { 
-    	header("Location: http://ignatz-radstroem.com/index?site=login_serror");
+    	header("Location: http://ignatz-radstroem.com/index?site=login_error");
     	exit(); 
     };
 ?>
