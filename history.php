@@ -10,78 +10,72 @@
     }
 ?>
 
-<div class="container">
-    <div id="wrapper">
-    	<section id="Text_Vita">
-    Hier bekommen Sie einen Einblick in den geschichtlichen Hintergrund der Werke des Künstlers Max Mustermann.
-    	</section>
-        <!-- ueberschriften-->
-        <div class="bilder">
-        		<figure>
-    		    	<img src ="gallery/02.jpg" alt="Arte Povera">
-    		    	<!--<figcaption>Kunsttil A: Arte Povera</figcaption>-->
-    		    </figure>
-    		    <figure>
-    		    	<img src ="gallery/sakura1.jpg" alt="Naturalismus">
-    		    	<!--<figcaption>Kunsttil B: Naturalismus</figcaption>-->
-        		</figure>
-        	</div>
+<div id="wrapper">
+    <div class="einleitung">
+    <h1> the history </h1>
+    <p>
+Hier bekommen Sie einen Einblick in den geschichtlichen Hintergrund der Werke des Künstlers Max Mustermann.
+    </p>
+    </div>
+    <!-- ueberschriften-->
+    <div class="bilder">
+            <figure>
+                <img src ="gallery/02.jpg" alt="Arte Povera">
+                <!--<figcaption>Kunsttil A: Arte Povera</figcaption>-->
+            </figure>
+            <figure id="bild2">
+                <img src ="gallery/sakura1.jpg" alt="Naturalismus">
+                <!--<figcaption>Kunsttil B: Naturalismus</figcaption>-->
+            </figure>
+        </div>
 
-        	<div class="buttons">
-    			<button id="teil1">Stil A - Arte Povera</button>
-            	<button id="teil2"> Stil B - Naturalismus</button>
-        	</div>
+        <div class="buttons">
+            <button id="teil1">Stil A - Arte Povera</button>
+            <button id="teil2"> Stil B - Naturalismus</button>
+        </div>
+        
+    <!--Teil1-->
+  
+        <div id="teil11">
+            <h3> Stil A - Arte Povera: geschichtlicher Hintergrund</h3>
+
+                <p id="einleitung"> Arte Povera beschreibt einen Kunsttil, der im Jahre XXXX Einzug fand.
+                </p>
+
+            <div class="content">
+
+                <p> berühmte Künstler der Arte Povera: </p>
+                
+                   <ul>
+                        <li><p> Germano Celant </p></li>
+                        <li><p> Künstler 2</p></li>
+                        
+                    </ul>
             
-        <!--Teil1-->
-      
-            <div id="teil11">
-                <h1> Stil A - Arte Povera: geschichtlicher Hintergrund</h1>
-
-                    <p id="einleitung"> Arte Povera beschreibt einen Kunsttil, der im Jahre XXXX Einzug fand.
-                    </p>
-
-                <div class="content">
-
-                    <button id="titleA"> berühmte Künstler der Arte Povera </button>
-                        <p id="A"> Germano Celant </p>
-
-                </div>
-
-                <div class="content">
-                    <button id="titleB"> berühmte Gemälde der Arte Povera </button>
-                        <p id="B"> Reiter am Strand
-                        </p>
-                </div>
-               
-              
             </div>
-            <!-- Ende Teil1 -->
-            <!-- Teil 2-->
-            <div id="teil22">
-                <h2> Stil B - Naturalismus: geschichtlicher Hintergrund</h2>
-                 <p id="einleitung"> Naturalismus beschreibt einen Kunsttil, der im Jahre XXXX Einzug fand.
-                    </p>
-                <div class="content">
-                    <button id="title1">berühmte Künstler des Naturalismus</button>
-                    <p id="erstes">Picasso</p>
-                </div>
-
-                <div class="content">
-                    <button id="title2">berühmte Gemälde des Naturalismus</button>
-                    <div id="zweites">
-                            <p>das Gewässer </p>
-                        <ul>
-                            <li><p> Liste1</p></li>
-                            <li><p> Liste2</p></li>
-                            <li><p> Liste3</li></p>
-                        </ul>
-                    </div>
-                </div>
-
-               
+         
+           
+          
+        </div>
+        <!-- Ende Teil1 -->
+        <!-- Teil 2-->
+        <div id="teil22">
+            <h3> Stil B - Naturalismus: geschichtlicher Hintergrund</h3>
+             <p id="einleitung"> Naturalismus beschreibt einen Kunsttil, der im Jahre XXXX Einzug fand.
+                </p>
+            <div class="content">
+                <p>berühmte Künstler des Naturalismus</p>
+         
+                <ul>
+                        <li><p> Picasso </p></li>
+                        <li><p> Künstler 2</p></li>
+                       
+                    </ul>
+            
             </div>
-            <!--Ende Teil 2-->
-    </div>
-    </div>
-    <!-- Ende gesamter Inhalt-->
+
+
+           
+        </div>
+        <!--Ende Teil 2-->
 </div>

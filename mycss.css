@@ -7,15 +7,14 @@ body {
     height: 100%;
     margin: auto;
 }
-
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: white;
+    
     margin-top: 100px;
 }
-
 footer p {
     text-align: center;
     color: gray;
@@ -31,11 +30,11 @@ footer p {
 .maincontent p {
     text-align: justify;
 }
- /*
+
 .clearer {
     clear: both;
 }
-*/
+
 /*fuer kuenstler-gallery*/
 .thumbnail {
     width: 100px;
@@ -158,6 +157,7 @@ li.unvis {
     top:45px;
     left: 146px;
     float:left;
+    position: relative;
 }
 
 #teil11, #teil22, #A, #B, #erstes, #zweites{
